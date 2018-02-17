@@ -16,11 +16,11 @@
   <ProviderName>StayPrivate</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-  <DisplayName DefaultValue="SecureMail for Outlook" />
+  <DisplayName DefaultValue="SecureMail" />
   <Description DefaultValue="STAY PRIVATE - SECURE COMMUNICATION FOR BUSINESSES AND INDIVIDUALS"/>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
+  <IconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png" />
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->

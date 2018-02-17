@@ -16,12 +16,12 @@
   <ProviderName>StayPrivate</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-  <DisplayName DefaultValue="SecureMail for Outlook" />
+  <DisplayName DefaultValue="SecureMail" />
   <Description DefaultValue="STAY PRIVATE - SECURE COMMUNICATION FOR BUSINESSES AND INDIVIDUALS"/>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png"/>
+  <IconUrl DefaultValue="https://www.stayprivate.com/quorum/addins/assets/hi-res-icon.png" />
+  <HighResolutionIconUrl DefaultValue="https://www.stayprivate.com/quorum/addins/assets/hi-res-icon.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
   <!--<SupportUrl DefaultValue="[Insert the URL of a page that provides support information for the app]" />-->
@@ -45,7 +45,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://localhost:3000/index.html"/>
+        <SourceLocation DefaultValue="https://www.stayprivate.com/quorum/addins/index.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -107,12 +107,12 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="icon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="icon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="icon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="icon16" DefaultValue="https://www.stayprivate.com/quorum/addins/assets/icon-16.png"/>
+        <bt:Image id="icon32" DefaultValue="https://www.stayprivate.com/quorum/addins/assets/icon-32.png"/>
+        <bt:Image id="icon80" DefaultValue="https://www.stayprivate.com/quorum/addins/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://localhost:3000/index.html"/>
+        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="https://www.stayprivate.com/quorum/addins/index.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>

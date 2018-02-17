@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SecureMail from StayPrivate</title>
+    <title>SecureMail</title>
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
@@ -15,20 +15,24 @@
     <!--<link rel="stylesheet" href="node_modules/office-ui-fabric-js/dist/css/fabric.components.css"/>-->
 
     <!-- CDN -->
-    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.min.css" />
-    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.components.min.css" />
+    <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.min.css" />-->
+    <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.components.min.css" />-->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.min.css">
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/css/fabric.components.min.css">
 
     <!-- Template styles -->
     <link href="app.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="assets/css/selectize.css"/>
     <link rel="stylesheet" href="assets/css/selectize.default.css"/>
-    <script src="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/js/fabric.min.js"></script>
+    <link rel="stylesheet" href="assets/css/addin-css.css"/>
+    <!--<script src="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/js/fabric.min.js"></script>-->
+    <script src="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.4.0/js/fabric.min.js"></script>
     <!--<script type="text/javascript" src="node_modules/office-ui-fabric-js/dist/js/fabric.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.min.js"></script>
     <!--<script type="text/javascript" src="node_modules/core-js/client/core.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>-->
-
+    <!-- <script type="text/javascript" src="assets/js/lodash.js"></script> -->
     <script type="text/javascript" src="assets/js/selectize.js"></script>
 
 </head>
@@ -39,39 +43,78 @@
          <!--title="SecureMail from StayPrivate"/>-->
 <!--</header>-->
 <main class="ms-welcome__main">
-    <button id="remove" class="ms-Button ms-Button--hero">
-        <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--Remove"></i></span>
-        <span class="ms-Button-label">Remove Encryption</span>
-    </button>
-    <br>
-    <div class="ms-TextField" style="width: 100%">
-        <label class="ms-Label">Secure email address:</label>
-        <input id="addressTo" type="text" class="ms-TextField-field contacts" name="addressTo" placeholder="Your secure email">
-    </div>
-    <div class="ms-TextField" style="width: 100%">
-        <label class="ms-Label">Subject:</label>
-        <input id="subject" type="text" class="ms-TextField-field contacts" autofocus name="subject" placeholder="Please enter a subject">
-    </div>
-    <div class="ms-TextField" style="width: 100%">
-        <label class="ms-Label">To:</label>
-        <select id="select-to" class="contacts" placeholder="Recipient email addresses"></select>
-    </div>
-    <hr>
-    <div class="ms-CheckBox" style="width: 100%">
-        <label role="checkbox"
-               class="ms-CheckBox-field "
-               tabindex="0"
-               aria-checked="false"
-               name="checkboxa">
-            <span class="ms-Label">Encrypt message content (attachments are always encrypted) &nbsp; </span>
+    <div class="ms-TextField" style="width: 100%; padding-bottom: 30px;">
+        <label class="ms-Label">
+            Your secure email address:
         </label>
-        <input tabindex="-1" id="encCheckBox" name="encCheckBox" type="checkbox" class="ms-CheckBox-input">
-        <!--<input tabindex="-1" type="checkbox" class="ms-CheckBox-input">-->
+        <input id="addressTo" type="text" class="ms-TextField-field contacts" name="addressTo" placeholder="Please enter your secure email address">
+        <div class="ms-CalloutExample">
+            <div class="ms-Callout ms-Callout--close is-hidden">
+                <div class="ms-Callout-main">
+                    <button class="ms-Callout-close">
+                        <i class="ms-Icon ms-Icon--Clear"></i>
+                    </button>
+                    <div class="ms-Callout-header">
+                        <p class="ms-Callout-title">Please set your secure email address</p>
+                    </div>
+                    <div class="ms-Callout-inner">
+                        <div class="ms-Callout-content">
+                            <p class="ms-Callout-subText">
+                                To begin sending secure email through the SecureMail Add-in please enter your QUORUM secure email address. If you don't have a QUORUM account, please follow the link below to register for a free 30-day trial.
+                            </p>
+                        </div>
+                        <div class="ms-Callout-actions">
+                            <a class="ms-Link" title="Learn More" href="https://www.stayprivate.com/quorum/" target="_blank">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-CalloutExample-button">
+                <a class="ms-Link" href="#">What's this?</a>
+            </div>
+        </div>
     </div>
-    <button id="add" class="ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20">
-        <span class="ms-Button-label">Encrypt</span>
-        <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--ChevronRight"></i></span>
-    </button>
+    <div id="action-area" style="width: 100%; display: none;">
+        <button id="remove" class="ms-Button ms-Button--hero">
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--Remove" id="remove-icon"></i></span>
+            <span class="ms-Button-label" id="remove-text">Cancel Encryption</span>
+        </button>
+        <br>
+        <div class="ms-TextField" style="width: 100%">
+            <label class="ms-Label">Subject:</label>
+            <input id="subject" type="text" class="ms-TextField-field contacts" autofocus name="subject" placeholder="Please enter a subject">
+        </div>
+        <div class="ms-TextField" style="width: 100%">
+            <label class="ms-Label">To:</label>
+            <select id="select-to" class="contacts" placeholder="Recipient email addresses"></select>
+        </div>
+
+        <div class="ms-TextField" style="width: 100%">
+            <label class="ms-Label">Cc:</label>
+            <select id="select-cc" class="contacts" placeholder="Recipient email addresses"></select>
+        </div>
+
+        <div class="ms-TextField" style="width: 100%">
+            <label class="ms-Label">Bcc:</label>
+            <select id="select-bcc" class="contacts" placeholder="Recipient email addresses"></select>
+        </div>
+
+        <div class="ms-CheckBox" style="width: 100%; padding-top: 12px;">
+            <label role="checkbox"
+                   class="ms-CheckBox-field "
+                   tabindex="0"
+                   aria-checked="false"
+                   name="checkboxa">
+                <span class="ms-Label">Encrypt message content (attachments are always encrypted) &nbsp; </span>
+            </label>
+            <input tabindex="-1" id="encCheckBox" name="encCheckBox" type="checkbox" class="ms-CheckBox-input">
+            <!--<input tabindex="-1" type="checkbox" class="ms-CheckBox-input">-->
+        </div>
+        <button id="add" class="ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20">
+            <span class="ms-Button-label">Encrypt</span>
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--ChevronRight"></i></span>
+        </button>
+    </div>
 </main>
 <script type="text/javascript" src="app.js"></script>
 </body>
