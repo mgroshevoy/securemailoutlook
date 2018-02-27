@@ -210,7 +210,6 @@
             });
 
 
-
             //var buttonComponents = [];
             var ButtonElements = document.querySelectorAll(".ms-Button");
             for (i = 0; i < ButtonElements.length; i++) {
@@ -240,7 +239,7 @@
             checkBoxComponents[0].check();
 
             $('#addressTo').val(Office.context.roamingSettings.get('secureEmailAddress'));
-            if ($('#addressTo').val().match(new RegExp('^' + REGEX_EMAIL + '$', 'ig'))) {
+            if ($('#addressTo').val().match(new RegExp('^' + REGEX_EMAIL + '$', 'ig')) && ($('#addressTo').val().includes('.secure-comm.com') || $('#addressTo').val().includes('.stayprivate.com'))) {
                 $('#action-area').show();
             } else {
                 $('#action-area').hide();
@@ -282,15 +281,17 @@
                                     console.log(asyncResult.error.message);
                                 }
                                 else {
-                                    asyncResult.value.forEach(function (value) {
-                                        if (value.emailAddress !== $('#addressTo').val()) {
-                                            $selectcc[0].selectize.addOption({
-                                                name: value.displayName,
-                                                email: value.emailAddress
-                                            });
-                                            $selectcc[0].selectize.addItem(value.emailAddress);
-                                        }
-                                    });
+                                    if (asyncResult.value.length) {
+                                        asyncResult.value.forEach(function (value) {
+                                            if (value.emailAddress !== $('#addressTo').val()) {
+                                                $selectcc[0].selectize.addOption({
+                                                    name: value.displayName,
+                                                    email: value.emailAddress
+                                                });
+                                                $selectcc[0].selectize.addItem(value.emailAddress);
+                                            }
+                                        });
+                                    } else $('#cc').toggle();
                                 }
                             }
                         );
@@ -301,15 +302,17 @@
                                     console.log(asyncResult.error.message);
                                 }
                                 else {
-                                    asyncResult.value.forEach(function (value) {
-                                        if (value.emailAddress !== $('#addressTo').val()) {
-                                            $selectbcc[0].selectize.addOption({
-                                                name: value.displayName,
-                                                email: value.emailAddress
-                                            });
-                                            $selectbcc[0].selectize.addItem(value.emailAddress);
-                                        }
-                                    });
+                                    if (asyncResult.value.length) {
+                                        asyncResult.value.forEach(function (value) {
+                                            if (value.emailAddress !== $('#addressTo').val()) {
+                                                $selectbcc[0].selectize.addOption({
+                                                    name: value.displayName,
+                                                    email: value.emailAddress
+                                                });
+                                                $selectbcc[0].selectize.addItem(value.emailAddress);
+                                            }
+                                        });
+                                    } else $('#bcc').toggle();
                                 }
                             }
                         );
@@ -322,6 +325,9 @@
                         $('#subject').val(subj);
                     }
                 });
+
+            $('#cc-toggle').on('click', function() {$('#cc').toggle()});
+            $('#bcc-toggle').on('click', function() {$('#bcc').toggle()});
 
             // Add subject to message
 
@@ -405,7 +411,7 @@
 
             $('#addressTo').on('input', function () {
 
-                if ($(this).val().match(new RegExp('^' + REGEX_EMAIL + '$', 'ig'))) {
+                if ($(this).val().match(new RegExp('^' + REGEX_EMAIL + '$', 'ig')) && ($('#addressTo').val().includes('.secure-comm.com') || $('#addressTo').val().includes('.stayprivate.com'))) {
                     $('#action-area').show();
                     var secureEmailAddress = $('#addressTo').val();
                     Office.context.roamingSettings.set('secureEmailAddress', secureEmailAddress);
@@ -553,7 +559,7 @@
                         email: people.email
                     });
                 });
-            }
+            } else $('#bcc').toggle();
 
         }).fail(function (error) {
             // Handle error

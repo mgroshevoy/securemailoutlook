@@ -84,17 +84,18 @@
             <label class="ms-Label">Subject:</label>
             <input id="subject" type="text" class="ms-TextField-field contacts" autofocus name="subject" placeholder="Please enter a subject">
         </div>
+        <div style="width: 100%; font-weight: bold;"><div style="display:inline-block; width: 50%;">To:</div><div style="display:inline-block; text-align: right; width: 50%;"><a id="cc-toggle" style="margin-right: 5px;" href="#">Cc </a><a id="bcc-toggle" href="#">Bcc </a></div></div>
         <div class="ms-TextField" style="width: 100%">
-            <label class="ms-Label">To:</label>
+            <label class="ms-Label" style="height: 0;"></label>
             <select id="select-to" class="contacts" placeholder="Recipient email addresses"></select>
         </div>
 
-        <div class="ms-TextField" style="width: 100%">
+        <div id="cc" class="ms-TextField" style="width: 100%">
             <label class="ms-Label">Cc:</label>
             <select id="select-cc" class="contacts" placeholder="Recipient email addresses"></select>
         </div>
 
-        <div class="ms-TextField" style="width: 100%">
+        <div id="bcc" class="ms-TextField" style="width: 100%">
             <label class="ms-Label">Bcc:</label>
             <select id="select-bcc" class="contacts" placeholder="Recipient email addresses"></select>
         </div>
